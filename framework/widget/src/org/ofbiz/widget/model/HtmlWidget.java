@@ -39,6 +39,7 @@ import org.ofbiz.base.util.cache.UtilCache;
 import org.ofbiz.base.util.collections.MapStack;
 import org.ofbiz.base.util.string.FlexibleStringExpander;
 import org.ofbiz.base.util.template.FreeMarkerWorker;
+import org.ofbiz.base.util.template.ScipioFtlWrappers;
 import org.ofbiz.webapp.ftl.ExtendedWrapper;
 import org.ofbiz.webapp.renderer.RenderContextFetcher;
 import org.ofbiz.widget.renderer.ScreenRenderer;
@@ -46,6 +47,7 @@ import org.ofbiz.widget.renderer.ScreenStringRenderer;
 import org.ofbiz.widget.renderer.html.HtmlWidgetRenderer;
 import org.w3c.dom.Element;
 
+import freemarker.ext.beans.BeansWrapper;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -58,7 +60,9 @@ public class HtmlWidget extends ModelScreenWidget {
     public static final String module = HtmlWidget.class.getName();
 
     private static final UtilCache<String, Template> specialTemplateCache = UtilCache.createUtilCache("widget.screen.template.ftl.general", 0, 0, false);
-    protected static final Configuration specialConfig = FreeMarkerWorker.makeConfiguration(new ExtendedWrapper(FreeMarkerWorker.version, "html")); // SCIPIO: generalized, must pass "html"
+    // SCIPIO: 2017-04-03: use new generalized extended wrapper
+    //protected static final Configuration specialConfig = FreeMarkerWorker.makeConfiguration(new ExtendedWrapper(FreeMarkerWorker.version, "html")); // SCIPIO: generalized, must pass "html"
+    protected static final Configuration specialConfig = FreeMarkerWorker.makeConfiguration((BeansWrapper) ScipioFtlWrappers.getSystemObjectWrapperFactory().getExtendedWrapper(FreeMarkerWorker.version, "html")); // SCIPIO: generalized, must pass "html"
 
     // SCIPIO: caches for inlined templates
     private static final UtilCache<String, Template> inlineBasicTemplateCache = UtilCache.createUtilCache("widget.screen.template.ftl.inline.basic", 0, 0, false);
@@ -108,7 +112,7 @@ public class HtmlWidget extends ModelScreenWidget {
     }
 
     @Override
-    public void renderWidgetString(Appendable writer, Map<String, Object> context, ScreenStringRenderer screenStringRenderer) throws GeneralException, IOException {
+    public void renderWidgetStringCore(Appendable writer, Map<String, Object> context, ScreenStringRenderer screenStringRenderer) throws GeneralException, IOException {
         for (ModelScreenWidget subWidget : subWidgets) {
             subWidget.renderWidgetString(writer, context, screenStringRenderer);
         }
@@ -216,6 +220,8 @@ public class HtmlWidget extends ModelScreenWidget {
             } catch (IOException e) {
             }
         } else {
+            // TODO: REVIEW: we should be throwing the same exception types as
+            // org.ofbiz.widget.renderer.macro.MacroScreenRenderer.handleError(Appendable, Map<String, Object>, Throwable)
             throw new RuntimeException(ex);
         }
     }
@@ -277,7 +283,7 @@ public class HtmlWidget extends ModelScreenWidget {
         }
 
         @Override
-        public void renderWidgetString(Appendable writer, Map<String, Object> context, ScreenStringRenderer screenStringRenderer) {
+        public void renderWidgetStringCore(Appendable writer, Map<String, Object> context, ScreenStringRenderer screenStringRenderer) {
             renderHtmlTemplate(writer, this.locationExdr, context);
         }
 
@@ -320,7 +326,7 @@ public class HtmlWidget extends ModelScreenWidget {
         }
 
         @Override
-        public void renderWidgetString(Appendable writer, Map<String, Object> context, ScreenStringRenderer screenStringRenderer) {
+        public void renderWidgetStringCore(Appendable writer, Map<String, Object> context, ScreenStringRenderer screenStringRenderer) {
             renderHtmlTemplate(writer, this.templateBody, this.lang, this.templateId, context);
         }
 
@@ -360,7 +366,7 @@ public class HtmlWidget extends ModelScreenWidget {
         }
 
         @Override
-        public void renderWidgetString(Appendable writer, Map<String, Object> context, ScreenStringRenderer screenStringRenderer) {
+        public void renderWidgetStringCore(Appendable writer, Map<String, Object> context, ScreenStringRenderer screenStringRenderer) {
             // isolate the scope
             MapStack<String> contextMs;
             if (!(context instanceof MapStack<?>)) {
@@ -375,7 +381,7 @@ public class HtmlWidget extends ModelScreenWidget {
             // SCIPIO: 2017-03-09: workaround for context fetching problems
             RenderContextFetcher contextFetcher = ScreenRenderer.makeEnvAwareContextFetcher(writer, standAloneStack);
             standAloneStack.put("screens", new ScreenRenderer(contextFetcher, screenStringRenderer));
-            SectionsRenderer sections = new SectionsRenderer(this.sectionMap, contextFetcher, screenStringRenderer);
+            SectionsRenderer sections = new SectionsRenderer(this.sectionMap, contextFetcher, screenStringRenderer, this);
 
             // put the sectionMap in the context, make sure it is in the sub-scope, ie after calling push on the MapStack
             contextMs.push();
@@ -414,7 +420,7 @@ public class HtmlWidget extends ModelScreenWidget {
         }
 
         @Override
-        public void renderWidgetString(Appendable writer, Map<String, Object> context, ScreenStringRenderer screenStringRenderer) throws GeneralException, IOException {
+        public void renderWidgetStringCore(Appendable writer, Map<String, Object> context, ScreenStringRenderer screenStringRenderer) throws GeneralException, IOException {
             // render sub-widgets
             renderSubWidgetsString(this.subWidgets, writer, context, screenStringRenderer);
         }

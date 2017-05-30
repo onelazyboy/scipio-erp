@@ -573,13 +573,13 @@
         <value xml:lang="zh_TW">查詢入口網頁</value>
     </property>
     <property key="PageTitleFindUtilCache">
-        <value xml:lang="de">Cache Wartungsseite</value>
-        <value xml:lang="en">Cache Maintenance Page</value>
-        <value xml:lang="fr">Page de maintenance des caches</value>
+        <value xml:lang="de">Cache Wartungs</value>
+        <value xml:lang="en">Cache Maintenance</value>
+        <value xml:lang="fr">Maintenance des caches</value>
         <value xml:lang="it">Manutenzione cache</value>
         <value xml:lang="ja">キャッシュメンテナンスページ</value>
-        <value xml:lang="pt">Cache da PÃ¡gina de ManutenÃ§Ã£o</value>
-        <value xml:lang="ro">Pagina Intretinere Cache</value>
+        <value xml:lang="pt">Cache de ManutenÃ§Ã£o</value>
+        <value xml:lang="ro">Intretinere Cache</value>
         <value xml:lang="th">หน้าของการดูแลรักษา</value>
         <value xml:lang="vi">Trang quản trị bộ Đệm</value>
         <value xml:lang="zh">缓存维护页面</value>
@@ -587,12 +587,12 @@
     </property>
     <property key="PageTitleFindUtilCacheElements">
         <value xml:lang="de">Cache Elemente Wartungsseite</value>
-        <value xml:lang="en">Cache Element Maintenance Page</value>
-        <value xml:lang="fr">Page d'entretien d'éléments des caches</value>
-        <value xml:lang="it">Pagina manutenzione elementi cache</value>
+        <value xml:lang="en">Cache Element Maintenance</value>
+        <value xml:lang="fr">Entretien d'éléments des caches</value>
+        <value xml:lang="it">Manutenzione elementi cache</value>
         <value xml:lang="ja">キャッシュ要素メンテナンスページ</value>
-        <value xml:lang="pt">Elemento de Cache da PÃ¡gina de ManutenÃ§Ã£o</value>
-        <value xml:lang="ro">Pagina Intretinere Elemente Cache</value>
+        <value xml:lang="pt">Elemento de Cache de ManutenÃ§Ã£o</value>
+        <value xml:lang="ro">Intretinere Elemente Cache</value>
         <value xml:lang="th">หน้าของการดูแลรักษาอย่างละเอียด</value>
         <value xml:lang="vi">Trang quản trị phần tử bộ Đệm</value>
         <value xml:lang="zh">缓存元素维护页面</value>
@@ -3891,8 +3891,8 @@
     </property>
     <property key="WebtoolsOutToBrowser">
         <value xml:lang="de">ODER Browserausgabe</value>
-        <value xml:lang="en">&lt;U&gt;OR&lt;/U&gt; Out to Browser (FireFox, Safari and Opera: view source. Chrome does not work)</value>
-        <value xml:lang="fr">&lt;U&gt;OU&lt;/U&gt; dans le navigateur (FireFox, Safari  et Opera : voir le source. Chrome ne fontionne pas)</value>
+        <value xml:lang="en">Or Out to Browser (FireFox, Safari and Opera: view source. Chrome does not work)</value>
+        <value xml:lang="fr">Ou dans le navigateur (FireFox, Safari  et Opera : voir le source. Chrome ne fontionne pas)</value>
         <value xml:lang="it">O output al browser</value>
         <value xml:lang="ja">ブラウザに出力</value>
         <value xml:lang="pt">Ou devolver para o navegador</value>
@@ -5961,6 +5961,14 @@
         <value xml:lang="de">Der angegebene Entity-Wert nicht vorhanden oder wurde entfernt.</value>
         <value xml:lang="en">The specified entity value does not exist or has been removed.</value>
     </property>
+    <property key="WebtoolsSpecifiedEntityValueRemovedSuccess">
+        <value xml:lang="de">Der angegebene Entity-Wert wurde erfolgreich entfernt.</value>
+        <value xml:lang="en">The specified entity value has been successfully removed.</value>
+    </property>
+    <property key="WebtoolsSpecifiedEntityValueRemovedDetail">
+        <value xml:lang="de">HINWEIS: Der ausgewiesene Entitätswert wurde gelöscht und existiert nicht mehr im System.</value>
+        <value xml:lang="en">NOTE: The entity value shown was deleted and no longer exists in the system.</value>
+    </property>
     <property key="WebtoolsDeveloperDocumentation">
         <value xml:lang="de">Developer Documentation</value>
         <value xml:lang="en">Developer Documentation</value>
@@ -5968,5 +5976,13 @@
     <property key="WebtoolsTemplateApiDocsTitle">
         <value xml:lang="de">Templating Toolkit Dokumentation</value>
         <value xml:lang="en">Templating Toolkit Documentation</value>
+    </property>
+    <property key="WebtoolsFieldValueNoStringRepr">
+        <value xml:lang="de">Feldwert kann nicht als String dargestellt werden</value>
+        <value xml:lang="en">Field value can't be represented as string</value>
+    </property>
+    <property key="WebtoolsNoStringRepr">
+        <value xml:lang="de">Keine Stringdarstellung</value>
+        <value xml:lang="en">No string representation</value>
     </property>
 </resource>

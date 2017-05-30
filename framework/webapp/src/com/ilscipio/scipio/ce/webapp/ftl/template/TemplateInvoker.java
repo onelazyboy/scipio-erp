@@ -7,16 +7,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.ofbiz.base.util.Debug;
-import org.ofbiz.base.util.cache.UtilCache;
 import org.ofbiz.base.util.collections.MapStack;
 import org.ofbiz.base.util.template.FreeMarkerWorker;
+import org.ofbiz.base.util.template.ScipioFtlWrappers.ScipioModelFactory;
+import org.ofbiz.base.util.template.ScipioFtlWrappers.ScipioObjectWrapper;
 
 import com.ilscipio.scipio.ce.webapp.ftl.context.ContextFtlUtil;
 import com.ilscipio.scipio.ce.webapp.ftl.template.TemplateInvoker.InvokeOptions.InvokeMode;
 
 import freemarker.core.Environment;
 import freemarker.ext.util.WrapperTemplateModel;
-import freemarker.template.Configuration;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateDirectiveBody;
@@ -46,24 +46,9 @@ import freemarker.template.TemplateScalarModel;
  * invocation through the toString() method when this
  * is wrapped in a StringModel by the ObjectWrapper.
  * <p>
- * NOTE: 2017-02: Currently, by default, this relies on BeansWrapper StringModel to call
- * the StringTemplateInvoker.toString() method to do the invocation from templates;
- * this is imperfect but allows consistent unwrapping/rewrapping without needing 
- * to modify the ObjectWrapper. HOWEVER this means we only support the "scalar" model for now.
- * <p>
- * FIXME?: the reliance on BeansWrapper StringModel means that the bean does not support
- * the <code>?has_content</code> built-in. This is a limitation caused by the <code>?has_content</code>
- * built-in that is hardcoded and delegates to BeanModel.empty method (not overridden by StringModel),
- * which does not invoke the toString method for our invoker object.
- * This is works out, because <code>?has_content</code> usage on the direct variable would
- * cause double-rendering and performance problems.
- * Instead, templates should use <code>??</code> operator or force cast to string
- * using <code>?string</code> so it is unambiguous at which point the rendering will occur and
- * will only happen once.
- * <p>
- * TODO: in future should have a dedicated TemplateDirectiveModel + TemplateScalarModel hybrid + individuals
- * in order to be consistent with the <code>?interpret</code> directive behavior (but needs
- * special code for rewrapping in context, ideally ObjectWrapper.wrap override).
+ * NOTE: 2017-04-03: all of the security, error handling and java misuse issues with StringTemplateInvoker
+ * have been fixed using TemplateInvokerModelFactory below. We now ALWAYS avoid wrapping TemplateInvoker
+ * using BeanModel and StringTemplateInvoker is deprecated - do not use anymore.
  * <p>
  * TODO?: this currently does not support lazy template compilation... don't see much need.
  */
@@ -255,11 +240,19 @@ public class TemplateInvoker {
     }
     
     /**
-     * Gets a template invoker same as standard except its toString() method invokes rendering.
+     * Gets a standard template invoker. 
      */
-    public static TemplateInvoker getStringInvoker(TemplateSource templateSource, InvokeOptions invokeOptions, WrapperModel preferredModel) throws TemplateException, IOException {
-        return new StringTemplateInvoker(templateSource, invokeOptions, preferredModel);
+    public static TemplateInvoker getInvoker(TemplateSource templateSource, InvokeOptions invokeOptions) throws TemplateException, IOException {
+        return new TemplateInvoker(templateSource, invokeOptions, null);
     }
+    
+//    /**
+//     * Gets a template invoker same as standard except its toString() method invokes rendering.
+//     * @deprecated should be avoided because breaks toString contract and the original exception type is lost
+//     */
+//    public static TemplateInvoker getStringInvoker(TemplateSource templateSource, InvokeOptions invokeOptions, WrapperModel preferredModel) throws TemplateException, IOException {
+//        return new StringTemplateInvoker(templateSource, invokeOptions, preferredModel);
+//    }
 
     
     /* ***************************************************** */
@@ -343,40 +336,50 @@ public class TemplateInvoker {
     /* Specific Invoker Implementations */
     /* ***************************************************** */
     
-    /**
-     * Variant of TemplateInvoker that invokes rendering when toString() is called.
-     */
-    public static class StringTemplateInvoker extends TemplateInvoker {
-        protected StringTemplateInvoker(TemplateSource templateSource, InvokeOptions invokeOptions,
-                WrapperModel preferredModel) {
-            super(templateSource, invokeOptions, preferredModel);
-        }
-
-        @Override
-        public String toString() {
-            try {
-                // NOTE: this env check really belongs in the TemplateModels below, but because of the bean wrapper
-                // mode, it has to be here.
-                if (this.getInvokeOptions().isEnvOut()) {
-                    Environment env = FreeMarkerWorker.getCurrentEnvironment();
-                    if (env != null) {
-                        Writer out = env.getOut();
-                        if (out != null) {
-                            this.invoke(out);
-                            return "";
-                        }
-                    }
-                } 
-                return this.invoke();
-            } catch (TemplateException e) {
-                Debug.logError(e, module);
-                return "";
-            } catch (IOException e) {
-                Debug.logError(e, module);
-                return "";
-            }
-        }
-    }
+//    /**
+//     * Variant of TemplateInvoker that invokes rendering when toString() is called.
+//     * @deprecated should be avoided because breaks toString contract and the original exception type is lost
+//     */
+//    @Deprecated
+//    public static class StringTemplateInvoker extends TemplateInvoker {
+//        protected StringTemplateInvoker(TemplateSource templateSource, InvokeOptions invokeOptions,
+//                WrapperModel preferredModel) {
+//            super(templateSource, invokeOptions, preferredModel);
+//        }
+//
+//        @Override
+//        public String toString() {
+//            try {
+//                // NOTE: this env check really belongs in the TemplateModels below, but because of the bean wrapper
+//                // mode, it has to be here.
+//                if (this.getInvokeOptions().isEnvOut()) {
+//                    Environment env = FreeMarkerWorker.getCurrentEnvironment();
+//                    if (env != null) {
+//                        Writer out = env.getOut();
+//                        if (out != null) {
+//                            this.invoke(out);
+//                            return "";
+//                        }
+//                    }
+//                } 
+//                return this.invoke();
+//                // FIXME: we're not supposed to do this AT ALL because it breaks toString() contract,
+//                // but in the circumstances we have no choice but to rethrow this, because otherwise
+//                // we swallow errors that could be considered security issues
+////            } catch (TemplateException e) {
+////                Debug.logError(e, module);
+////                return "";
+////            } catch (IOException e) {
+////                Debug.logError(e, module);
+////                return "";
+////            }
+//            } catch (TemplateException e) {
+//                throw new RuntimeException(e);
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+//    }
     
     /* ***************************************************** */
     /* Invoker Freemarker Wrappers */
@@ -389,9 +392,12 @@ public class TemplateInvoker {
      * TODO: currently (2017-02) this always wraps using StringModel, done by most of the
      * default object wrapper impls.
      */
-    @SuppressWarnings("unchecked")
     public static <T extends TemplateModel> T wrap(TemplateInvoker invoker, ObjectWrapper objectWrapper) throws TemplateModelException {
-        return wrap(invoker, objectWrapper, invoker.getPreferredModel());
+        return wrap(invoker, invoker.getPreferredModel(), objectWrapper);
+    }
+    
+    public static <T extends TemplateModel> T wrap(TemplateInvoker invoker) throws TemplateModelException {
+        return wrap(invoker, invoker.getPreferredModel(), null);
     }
     
     /**
@@ -399,22 +405,24 @@ public class TemplateInvoker {
      * Can be called manually as this logic may not be present in <code>ObjectWrapper.wrap</code>.
      */
     @SuppressWarnings("unchecked")
-    public static <T extends TemplateModel> T wrap(TemplateInvoker invoker, ObjectWrapper objectWrapper, WrapperModel targetModel) throws TemplateModelException {
-        if (targetModel == null || targetModel == WrapperModel.SCALAR) {
-            if (invoker instanceof StringTemplateInvoker) {
-                // TODO: REVISIT: in this case, currently relying on StringModel and ignoring ScalarInvokerWrapper.
-                // This case currently covers all the practical usage in templates and CMS...
-                // NOTE: if this method were called from ObjectWrapper.wrap, would cause endless loop...
-                return (T) objectWrapper.wrap(invoker);
-            } else {
-                return (T) new ScalarInvokerWrapper(invoker);
-            }
+    public static <T extends TemplateModel> T wrap(TemplateInvoker invoker, WrapperModel targetModel, ObjectWrapper objectWrapper) throws TemplateModelException {
+        if (targetModel == null || targetModel == WrapperModel.HYBRID) {
+            return (T) new HybridInvokerWrapper(invoker);
+        } else if (targetModel == null || targetModel == WrapperModel.SCALAR) {
+            // 2017-03-31: just avoid the bean wrapper as much as possible, even though may not entirely be able to
+//            if (invoker instanceof StringTemplateInvoker && objectWrapper != null) {
+//                return (T) objectWrapper.wrap(invoker);
+//            } else {
+            return (T) new ScalarInvokerWrapper(invoker);
+//            }
         } else if (targetModel == WrapperModel.DIRECTIVE) {
             return (T) new DirectiveInvokerWrapper(invoker);
-        } else if (targetModel == WrapperModel.HYBRID) {
-            return (T) new HybridInvokerWrapper(invoker);
         }
         throw new UnsupportedOperationException("Unsupported template invoker FTL wrapper model: " + targetModel);
+    }
+    
+    public static <T extends TemplateModel> T wrap(TemplateInvoker invoker, WrapperModel targetModel) throws TemplateModelException {
+        return wrap(invoker, targetModel, null);
     }
     
     /**
@@ -447,10 +455,11 @@ public class TemplateInvoker {
     }
     
     public static class DirectiveInvokerWrapper extends InvokerWrapper implements TemplateDirectiveModel {
-        protected DirectiveInvokerWrapper(TemplateInvoker invoker) {
+        public DirectiveInvokerWrapper(TemplateInvoker invoker) {
             super(invoker);
         }
 
+        @SuppressWarnings("rawtypes")
         @Override
         public void execute(Environment env, Map args, TemplateModel[] modelArgs, TemplateDirectiveBody body)
                 throws TemplateException, IOException {
@@ -459,7 +468,7 @@ public class TemplateInvoker {
     }
     
     public static class ScalarInvokerWrapper extends InvokerWrapper implements TemplateScalarModel {
-        protected ScalarInvokerWrapper(TemplateInvoker invoker) {
+        public ScalarInvokerWrapper(TemplateInvoker invoker) {
             super(invoker);
         }
 
@@ -470,10 +479,11 @@ public class TemplateInvoker {
     }
 
     public static class HybridInvokerWrapper extends InvokerWrapper implements TemplateDirectiveModel, TemplateScalarModel {
-        protected HybridInvokerWrapper(TemplateInvoker invoker) {
+        public HybridInvokerWrapper(TemplateInvoker invoker) {
             super(invoker);
         }
 
+        @SuppressWarnings("rawtypes")
         @Override
         public void execute(Environment env, Map args, TemplateModel[] modelArgs, TemplateDirectiveBody body)
                 throws TemplateException, IOException {
@@ -483,6 +493,21 @@ public class TemplateInvoker {
         @Override
         public String getAsString() throws TemplateModelException {
             return invokeAsString();
+        }
+    }
+    
+    /**
+     * SPECIAL model factory plugged in via freemarkerWrapperFactories.properties.
+     * This ELIMINATES the need to try to work around BeanModel and toString() and all
+     * the problems associated.
+     */
+    public static class TemplateInvokerModelFactory implements ScipioModelFactory {
+        @Override
+        public TemplateModel wrap(Object object, ScipioObjectWrapper objectWrapper) throws TemplateModelException {
+            if (object instanceof TemplateInvoker) {
+                return TemplateInvoker.wrap((TemplateInvoker) object, objectWrapper);
+            }
+            return null;
         }
     }
     

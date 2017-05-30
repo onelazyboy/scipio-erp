@@ -204,7 +204,7 @@ context.styles = [
     "menu_sidebar_item_text" : "text-entry",
     "menu_sidebar_item_submit" : "",
     /* Tab and secondary navigation menus*/
-    "menu_tab" : "button-group force-button menu-type-tab tabs",
+    "menu_tab" : "button-group force-button menu-type-tab",
     "menu_tab_altnested" : "menu-type-tab",
     "menu_tab_type" : "menu-type-tab",
     "menu_tab_item" : "",
@@ -306,6 +306,20 @@ context.styles = [
     "menu_default_item_text" : "text-entry",
     "menu_default_item_submit" : "",
     "menu_default_item_generic" : "",
+    
+    /* separate-menu configurations */
+    "sepmenu_default_sidebar_config" : [
+        "layout" : "before-inline",
+        "sepTitle" : "#LABEL:CommonActions",
+        "sepTitleItemClass" : "+heading",
+        "nonsepTitle" : "#LABEL:CommonNavigation",
+        "nonsepTitleItemClass" : "+heading",
+        "nonsepTitleAlways" : true,
+        "separatorEnabled" : true,
+        "separatorItemClass" : "+separator",
+        "sepMenuClass" : "+scipio-nav-actions-separate-menu", // NOTE: currently this might not be outputted... but still may have internal use
+        "sepItemClass" : "+scipio-nav-actions-menu-item" // ugly kludge due to having no UL wrapper or any wrapper at all around actions menu items...
+    ],
     
     /* Misc menu styles */
     "menu_subappitem" : "subappitem",
@@ -1135,7 +1149,7 @@ context.styles = [
     "field_generic_tooltip" : "has-tip field-tooltip-wrap",
     
     /* default, for all fields */
-    "field_default_tooltip" : "has-tip tip-right",
+    "field_default_tooltip" : "has-tip tip-top",
     "field_default_tooltip_attribs" : [
       "data-tooltip" : "_NO_VALUE_",
       "aria-haspopup" : "true",
@@ -1202,30 +1216,6 @@ context.styles = [
         "list": "data-list",
         "multi": "data-list-multiform",
         "default": "generic"
-    ],
-    
-    /* Field select element multiple-select classes (jQuery asmselect) */
-    "field_select_asmselect" : [
-      "containerClass" : "asmContainer",            /* Class for container that wraps this widget */
-      "selectClass" : "asmSelect",                  /* Class for the newly created <select> */
-      "optionDisabledClass" : "asmOptionDisabled",  /* Class for items that are already selected / disabled */
-      "listClass" : "asmList",                      /* Class for the list ($ol) */
-      "listSortableClass" : "asmListSortable",      /* Another class given to the list when it is sortable */
-      "listItemClass" : "asmListItem",              /* Class for the <li> list items */
-      "listItemLabelClass" : "asmListItemLabel",    /* Class for the label text that appears in list items */
-      "removeClass" : "asmListItemRemove button tiny",          /* Class given to the "remove" link */
-      "highlightClass" : "asmHighlight"             /* Class given to the highlight <span> */
-      /* "listType" : "ol",           Ordered list 'ol', or unordered list 'ul' */
-      /* "sortable" : false,          Should the list be sortable? */
-      /* "highlight" : false,         Use the highlight feature? */
-      /* "animate" : false,           Animate the the adding/removing of items in the list? */
-      /* "addItemTarget" : "bottom",        Where to place new selected items in list: top or bottom */
-      /* "hideWhenAdded" : false,         Hide the option when added to the list? works only in FF */
-      /* "debugMode" : false,         Debug mode keeps original select visible */
-
-      /* "removeLabel" : "remove",          Text used in the "remove" link */
-      /* "highlightAddedLabel" : "Added: ",       Text that precedes highlight of added item */
-      /* "highlightRemovedLabel" : "Removed: "     Text that precedes highlight of removed item */
     ],
 
     /*List of icons that can be assigned per webapplication and specific menu_items. Uses font-awesome icons by default.*/

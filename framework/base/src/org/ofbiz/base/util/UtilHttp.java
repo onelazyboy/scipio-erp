@@ -149,7 +149,7 @@ public class UtilHttp {
 
         if (Debug.verboseOn()) {
             Debug.logVerbose("Made Request Parameter Map with [" + paramMap.size() + "] Entries", module);
-            Debug.logVerbose("Request Parameter Map Entries: " + System.getProperty("line.separator") + UtilMisc.printMap(paramMap), module);
+          //Debug.logVerbose("Request Parameter Map Entries: " + System.getProperty("line.separator") + UtilMisc.printMap(paramMap), module); see OFBIZ-9310
         }
 
         return canonicalizeParameterMap(paramMap);
@@ -266,8 +266,16 @@ public class UtilHttp {
      * @return The resulting Map
      */
     public static Map<String, Object> getJSONAttributeMap(HttpServletRequest request) {
+        // SCIPIO: delegating
+        return transformJSONAttributeMap(getAttributeMap(request));
+    }
+    
+    /**
+     * SCIPIO: factored out from getJSONAttributeMap.
+     * Added 2017-05-01.
+     */
+    public static Map<String, Object> transformJSONAttributeMap(Map<String, Object> attrMap) {
         Map<String, Object> returnMap = new HashMap<String, Object>();
-        Map<String, Object> attrMap = getAttributeMap(request);
         for (Map.Entry<String, Object> entry : attrMap.entrySet()) {
             String key = entry.getKey();
             Object val = entry.getValue();
