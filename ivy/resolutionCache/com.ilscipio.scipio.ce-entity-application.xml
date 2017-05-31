@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="com.ilscipio.scipio.ce"
+		module="entity"
+		revision="working@YOUJUN"
+		conf="application"
+		confs="application, base, jdbc"
+		date="20170531225502"/>
+	<dependencies>
+	</dependencies>
+</ivy-report>

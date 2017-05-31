@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="com.ilscipio.scipio.ce"
+		module="catalina"
+		revision="working@YOUJUN"
+		conf="application"
+		confs="application"
+		date="20170531225506"/>
+	<dependencies>
+		<module organisation="org.apache.tomcat.extras" name="tomcat-extras-juli-adapters">
+			<revision name="8.0.33" status="release" pubdate="20160319044704" resolver="central" artresolver="central" homepage="http://tomcat.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="10">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2903" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat.extras\tomcat-extras-juli-adapters\ivy-8.0.33.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat.extras\tomcat-extras-juli-adapters\ivy-8.0.33.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/tomcat/extras/tomcat-extras-juli-adapters/8.0.33/tomcat-extras-juli-adapters-8.0.33.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="catalina" conf="application" rev="8.0.33" rev-constraint-default="8.0.33" rev-constraint-dynamic="8.0.33" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="tomcat-extras-juli-adapters" type="jar" ext="jar" status="no" details="" size="21683" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat.extras\tomcat-extras-juli-adapters\jars\tomcat-extras-juli-adapters-8.0.33.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/tomcat/extras/tomcat-extras-juli-adapters/8.0.33/tomcat-extras-juli-adapters-8.0.33.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.tomcat.extras" name="tomcat-extras-juli">
+			<revision name="8.0.33" status="release" pubdate="20160319044649" resolver="central" artresolver="central" homepage="http://tomcat.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="9">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2542" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat.extras\tomcat-extras-juli\ivy-8.0.33.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat.extras\tomcat-extras-juli\ivy-8.0.33.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/tomcat/extras/tomcat-extras-juli/8.0.33/tomcat-extras-juli-8.0.33.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="catalina" conf="application" rev="8.0.33" rev-constraint-default="8.0.33" rev-constraint-dynamic="8.0.33" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="tomcat-extras-juli" type="jar" ext="jar" status="no" details="" size="78487" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat.extras\tomcat-extras-juli\jars\tomcat-extras-juli-8.0.33.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/tomcat/extras/tomcat-extras-juli/8.0.33/tomcat-extras-juli-8.0.33.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.tomcat" name="tomcat-jasper">
+			<revision name="8.0.33" status="release" pubdate="20160319044256" resolver="central" artresolver="central" homepage="http://tomcat.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="4">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3696" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-jasper\ivy-8.0.33.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-jasper\ivy-8.0.33.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-jasper/8.0.33/tomcat-jasper-8.0.33.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="catalina" conf="application" rev="8.0.33" rev-constraint-default="8.0.33" rev-constraint-dynamic="8.0.33" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="tomcat-jasper" type="jar" ext="jar" status="no" details="" size="586476" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-jasper\jars\tomcat-jasper-8.0.33.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-jasper/8.0.33/tomcat-jasper-8.0.33.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jdt.core.compiler" name="ecj">
+			<revision name="4.5" status="release" pubdate="20160225160138" resolver="central" artresolver="central" homepage="http://www.eclipse.org/jdt/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="11">
+				<license name="Eclipse Public License v1.0" url="http://www.eclipse.org/org/documents/epl-v10.php"/>
+				<metadata-artifact status="no" details="" size="3188" time="0" location="C:\Users\YJ\.ivy2\cache\org.eclipse.jdt.core.compiler\ecj\ivy-4.5.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.eclipse.jdt.core.compiler\ecj\ivy-4.5.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jdt/core/compiler/ecj/4.5/ecj-4.5.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="catalina" conf="application" rev="4.5" rev-constraint-default="4.5" rev-constraint-dynamic="4.5" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="ecj" type="jar" ext="jar" status="no" details="" size="2392920" time="0" location="C:\Users\YJ\.ivy2\cache\org.eclipse.jdt.core.compiler\ecj\jars\ecj-4.5.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jdt/core/compiler/ecj/4.5/ecj-4.5.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.tomcat" name="tomcat-catalina-ha">
+			<revision name="8.0.33" status="release" pubdate="20160319044118" resolver="central" artresolver="central" homepage="http://tomcat.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="2">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3587" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-catalina-ha\ivy-8.0.33.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-catalina-ha\ivy-8.0.33.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-catalina-ha/8.0.33/tomcat-catalina-ha-8.0.33.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="catalina" conf="application" rev="8.0.33" rev-constraint-default="8.0.33" rev-constraint-dynamic="8.0.33" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="tomcat-catalina-ha" type="jar" ext="jar" status="no" details="" size="119738" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-catalina-ha\jars\tomcat-catalina-ha-8.0.33.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-catalina-ha/8.0.33/tomcat-catalina-ha-8.0.33.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.tomcat" name="tomcat-tribes">
+			<revision name="8.0.33" status="release" pubdate="20160319044143" resolver="central" artresolver="central" homepage="http://tomcat.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="6">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2689" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-tribes\ivy-8.0.33.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-tribes\ivy-8.0.33.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-tribes/8.0.33/tomcat-tribes-8.0.33.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="catalina" conf="application" rev="8.0.33" rev-constraint-default="8.0.33" rev-constraint-dynamic="8.0.33" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="tomcat-tribes" type="jar" ext="jar" status="no" details="" size="271811" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-tribes\jars\tomcat-tribes-8.0.33.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-tribes/8.0.33/tomcat-tribes-8.0.33.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.tomcat" name="tomcat-catalina">
+			<revision name="8.0.33" status="release" pubdate="20160319044036" resolver="central" artresolver="central" homepage="http://tomcat.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="1">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3894" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-catalina\ivy-8.0.33.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-catalina\ivy-8.0.33.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-catalina/8.0.33/tomcat-catalina-8.0.33.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="catalina" conf="application" rev="8.0.33" rev-constraint-default="8.0.33" rev-constraint-dynamic="8.0.33" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="tomcat-catalina" type="jar" ext="jar" status="no" details="" size="1560232" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-catalina\jars\tomcat-catalina-8.0.33.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-catalina/8.0.33/tomcat-catalina-8.0.33.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.tomcat" name="tomcat-util-scan">
+			<revision name="8.0.33" status="release" pubdate="20160319044505" resolver="central" artresolver="central" homepage="http://tomcat.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="8">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3043" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-util-scan\ivy-8.0.33.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-util-scan\ivy-8.0.33.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-util-scan/8.0.33/tomcat-util-scan-8.0.33.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="catalina" conf="application" rev="8.0.33" rev-constraint-default="8.0.33" rev-constraint-dynamic="8.0.33" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="tomcat-util-scan" type="jar" ext="jar" status="no" details="" size="201139" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-util-scan\jars\tomcat-util-scan-8.0.33.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-util-scan/8.0.33/tomcat-util-scan-8.0.33.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.tomcat" name="tomcat-coyote">
+			<revision name="8.0.33" status="release" pubdate="20160319044519" resolver="central" artresolver="central" homepage="http://tomcat.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="3">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3123" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-coyote\ivy-8.0.33.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-coyote\ivy-8.0.33.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-coyote/8.0.33/tomcat-coyote-8.0.33.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="catalina" conf="application" rev="8.0.33" rev-constraint-default="8.0.33" rev-constraint-dynamic="8.0.33" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="tomcat-coyote" type="jar" ext="jar" status="no" details="" size="710786" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-coyote\jars\tomcat-coyote-8.0.33.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-coyote/8.0.33/tomcat-coyote-8.0.33.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.tomcat" name="tomcat-util">
+			<revision name="8.0.33" status="release" pubdate="20160319044451" resolver="central" artresolver="central" homepage="http://tomcat.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="7">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2697" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-util\ivy-8.0.33.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-util\ivy-8.0.33.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-util/8.0.33/tomcat-util-8.0.33.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="catalina" conf="application" rev="8.0.33" rev-constraint-default="8.0.33" rev-constraint-dynamic="8.0.33" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="tomcat-util" type="jar" ext="jar" status="no" details="" size="106919" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-util\jars\tomcat-util-8.0.33.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-util/8.0.33/tomcat-util-8.0.33.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.tomcat" name="tomcat-jni">
+			<revision name="8.0.33" status="release" pubdate="20160319044432" resolver="central" artresolver="central" homepage="http://tomcat.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="5">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2506" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-jni\ivy-8.0.33.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-jni\ivy-8.0.33.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-jni/8.0.33/tomcat-jni-8.0.33.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="catalina" conf="application" rev="8.0.33" rev-constraint-default="8.0.33" rev-constraint-dynamic="8.0.33" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="tomcat-jni" type="jar" ext="jar" status="no" details="" size="31475" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-jni\jars\tomcat-jni-8.0.33.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-jni/8.0.33/tomcat-jni-8.0.33.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.tomcat" name="tomcat-api">
+			<revision name="8.0.33" status="release" pubdate="20160319044412" resolver="central" artresolver="central" homepage="http://tomcat.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="0">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2707" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-api\ivy-8.0.33.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-api\ivy-8.0.33.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-api/8.0.33/tomcat-api-8.0.33.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="catalina" conf="application" rev="8.0.33" rev-constraint-default="8.0.33" rev-constraint-dynamic="8.0.33" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="tomcat-api" type="jar" ext="jar" status="no" details="" size="9278" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.tomcat\tomcat-api\jars\tomcat-api-8.0.33.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-api/8.0.33/tomcat-api-8.0.33.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

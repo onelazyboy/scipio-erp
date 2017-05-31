@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="com.ilscipio.scipio.ce"
+		module="geronimo"
+		revision="working@YOUJUN"
+		conf="application"
+		confs="application"
+		date="20170531225506"/>
+	<dependencies>
+		<module organisation="org.apache.geronimo.components" name="geronimo-transaction">
+			<revision name="3.1.1" status="release" pubdate="20110831173329" resolver="central" artresolver="central" homepage="http://geronimo.apache.org/maven/${siteId}/${project.version}" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="0">
+				<metadata-artifact status="no" details="" size="11736" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.geronimo.components\geronimo-transaction\ivy-3.1.1.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.apache.geronimo.components\geronimo-transaction\ivy-3.1.1.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/geronimo/components/geronimo-transaction/3.1.1/geronimo-transaction-3.1.1.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="geronimo" conf="application" rev="3.1.1" rev-constraint-default="3.1.1" rev-constraint-dynamic="3.1.1" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="geronimo-transaction" type="bundle" ext="jar" status="no" details="" size="72177" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.geronimo.components\geronimo-transaction\bundles\geronimo-transaction-3.1.1.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/geronimo/components/geronimo-transaction/3.1.1/geronimo-transaction-3.1.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

@@ -1,0 +1,3 @@
+status=RUNNING
+organisation=com.ilscipio.scipio.ce
+module=catalina

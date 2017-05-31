@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="com.ilscipio.scipio.ce"
+		module="entity"
+		revision="working@YOUJUN"
+		conf="jdbc"
+		confs="application, base, jdbc"
+		date="20170531225502"/>
+	<dependencies>
+		<module organisation="org.postgresql" name="postgresql">
+			<revision name="9.4.1209" status="release" pubdate="20160715210352" resolver="central" artresolver="central" homepage="https://github.com/pgjdbc/pgjdbc" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="6">
+				<license name="The PostgreSQL License" url="http://www.postgresql.org/about/licence/"/>
+				<metadata-artifact status="no" details="" size="5690" time="0" location="C:\Users\YJ\.ivy2\cache\org.postgresql\postgresql\ivy-9.4.1209.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.postgresql\postgresql\ivy-9.4.1209.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4.1209/postgresql-9.4.1209.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="entity" conf="jdbc" rev="9.4.1209" rev-constraint-default="9.4.1209" rev-constraint-dynamic="9.4.1209" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="postgresql" type="bundle" ext="jar" status="no" details="" size="689278" time="0" location="C:\Users\YJ\.ivy2\cache\org.postgresql\postgresql\bundles\postgresql-9.4.1209.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4.1209/postgresql-9.4.1209.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="9.4.1209.jre7" status="release" pubdate="20160715211928" resolver="central" artresolver="central" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="5">
+				<metadata-artifact status="no" details="" size="5663" time="0" location="C:\Users\YJ\.ivy2\cache\org.postgresql\postgresql\ivy-9.4.1209.jre7.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.postgresql\postgresql\ivy-9.4.1209.jre7.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4.1209.jre7/postgresql-9.4.1209.jre7.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="entity" conf="jdbc" rev="9.4.1209.jre7" rev-constraint-default="9.4.1209.jre7" rev-constraint-dynamic="9.4.1209.jre7" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="postgresql" type="bundle" ext="jar" status="no" details="" size="685271" time="0" location="C:\Users\YJ\.ivy2\cache\org.postgresql\postgresql\bundles\postgresql-9.4.1209.jre7.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4.1209.jre7/postgresql-9.4.1209.jre7.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="mysql" name="mysql-connector-java">
+			<revision name="5.1.39" status="release" pubdate="20160504191142" resolver="central" artresolver="central" homepage="http://dev.mysql.com/doc/connector-j/en/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="4">
+				<license name="The GNU General Public License, Version 2" url="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html"/>
+				<metadata-artifact status="no" details="" size="2546" time="0" location="C:\Users\YJ\.ivy2\cache\mysql\mysql-connector-java\ivy-5.1.39.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\mysql\mysql-connector-java\ivy-5.1.39.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.39/mysql-connector-java-5.1.39.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="entity" conf="jdbc" rev="5.1.39" rev-constraint-default="5.1.39" rev-constraint-dynamic="5.1.39" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="mysql-connector-java" type="jar" ext="jar" status="no" details="" size="989495" time="0" location="C:\Users\YJ\.ivy2\cache\mysql\mysql-connector-java\jars\mysql-connector-java-5.1.39.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.39/mysql-connector-java-5.1.39.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.hsqldb" name="hsqldb">
+			<revision name="2.3.4" status="release" pubdate="20160516215706" resolver="central" artresolver="central" homepage="http://hsqldb.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="3">
+				<license name="HSQLDB License, a BSD open source license" url="http://hsqldb.org/web/hsqlLicense.html"/>
+				<metadata-artifact status="no" details="" size="2588" time="0" location="C:\Users\YJ\.ivy2\cache\org.hsqldb\hsqldb\ivy-2.3.4.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.hsqldb\hsqldb\ivy-2.3.4.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="entity" conf="jdbc" rev="2.3.4" rev-constraint-default="2.3.4" rev-constraint-dynamic="2.3.4" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="hsqldb" type="jar" ext="jar" status="no" details="" size="1515894" time="0" location="C:\Users\YJ\.ivy2\cache\org.hsqldb\hsqldb\jars\hsqldb-2.3.4.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.firebirdsql.jdbc" name="jaybird-jdk18">
+			<revision name="2.2.10" status="release" pubdate="20160313234717" resolver="central" artresolver="central" homepage="http://www.firebirdsql.org/en/devel-jdbc-driver/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="2">
+				<license name="GNU Lesser General Public License" url="http://www.gnu.org/copyleft/lesser.html"/>
+				<license name="Modified BSD (3-clause) License" url="http://www.opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="no" details="" size="3373" time="0" location="C:\Users\YJ\.ivy2\cache\org.firebirdsql.jdbc\jaybird-jdk18\ivy-2.2.10.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.firebirdsql.jdbc\jaybird-jdk18\ivy-2.2.10.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/firebirdsql/jdbc/jaybird-jdk18/2.2.10/jaybird-jdk18-2.2.10.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="entity" conf="jdbc" rev="2.2.10" rev-constraint-default="2.2.10" rev-constraint-dynamic="2.2.10" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="jaybird-jdk18" type="jar" ext="jar" status="no" details="" size="888497" time="0" location="C:\Users\YJ\.ivy2\cache\org.firebirdsql.jdbc\jaybird-jdk18\jars\jaybird-jdk18-2.2.10.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/firebirdsql/jdbc/jaybird-jdk18/2.2.10/jaybird-jdk18-2.2.10.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.firebirdsql.jdbc" name="jaybird-jdk17">
+			<revision name="2.2.10" status="release" pubdate="20160313234702" resolver="central" artresolver="central" homepage="http://www.firebirdsql.org/en/devel-jdbc-driver/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="1">
+				<license name="GNU Lesser General Public License" url="http://www.gnu.org/copyleft/lesser.html"/>
+				<license name="Modified BSD (3-clause) License" url="http://www.opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="no" details="" size="3373" time="0" location="C:\Users\YJ\.ivy2\cache\org.firebirdsql.jdbc\jaybird-jdk17\ivy-2.2.10.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.firebirdsql.jdbc\jaybird-jdk17\ivy-2.2.10.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/firebirdsql/jdbc/jaybird-jdk17/2.2.10/jaybird-jdk17-2.2.10.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="entity" conf="jdbc" rev="2.2.10" rev-constraint-default="2.2.10" rev-constraint-dynamic="2.2.10" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="jaybird-jdk17" type="jar" ext="jar" status="no" details="" size="883837" time="0" location="C:\Users\YJ\.ivy2\cache\org.firebirdsql.jdbc\jaybird-jdk17\jars\jaybird-jdk17-2.2.10.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/firebirdsql/jdbc/jaybird-jdk17/2.2.10/jaybird-jdk17-2.2.10.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.derby" name="derby">
+			<revision name="10.11.1.1" status="release" pubdate="20140828035733" resolver="central" artresolver="central" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="0">
+				<metadata-artifact status="no" details="" size="3517" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.derby\derby\ivy-10.11.1.1.xml" searched="false" original-local-location="C:\Users\YJ\.ivy2\cache\org.apache.derby\derby\ivy-10.11.1.1.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.pom"/>
+				<caller organisation="com.ilscipio.scipio.ce" name="entity" conf="jdbc" rev="10.11.1.1" rev-constraint-default="10.11.1.1" rev-constraint-dynamic="10.11.1.1" callerrev="working@YOUJUN"/>
+				<artifacts>
+					<artifact name="derby" type="jar" ext="jar" status="no" details="" size="3103132" time="0" location="C:\Users\YJ\.ivy2\cache\org.apache.derby\derby\jars\derby-10.11.1.1.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>
